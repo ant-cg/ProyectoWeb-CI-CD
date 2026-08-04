@@ -42,8 +42,9 @@ jobs:
 
 
       # Ejecutar Jest
-      - name: Ejecutar pruebas unitarias
-        run: npm test
+      - name: Ejecutar pruebas unitarias con coverage
+        run: npm test -- --coverage
+        working-directory: backend
 
 
       # Levantar API
