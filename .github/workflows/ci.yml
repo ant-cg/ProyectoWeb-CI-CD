@@ -52,7 +52,7 @@ jobs:
           npm start &
           sleep 10
           
-          
+
       # Instalar k6
       - name: Instalar k6
         uses: grafana/setup-k6-action@v1
@@ -62,3 +62,10 @@ jobs:
       - name: Ejecutar pruebas API con k6
         run: |
           k6 run performance/performance-test.js
+
+
+      # Ejecutar Análisis de SonarQube 
+      - name: SonarQube Analysis
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
